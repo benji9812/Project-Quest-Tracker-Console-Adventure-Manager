@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Project_Quest_Tracker___Console_Adventure_Manager.Models
 {
-    public enum Priority { High, Medium, Low }
+    public enum Priority { High, Medium, Low } // Prioritetsnivåer för uppdrag
 
-    public class Quest
+    public class Quest // Modell för ett uppdrag
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime DueDate { get; set; }
-        public Priority Priority { get; set; }
-        public bool IsCompleted { get; set; }
+        public string Title { get; set; } // Uppdragets titel
+        public string Description { get; set; } // Uppdragets beskrivning
+        public DateTime DueDate { get; set; } // Uppdragets deadline
+        public Priority Priority { get; set; } // Uppdragets prioritet
+        public bool IsCompleted { get; set; } // Om uppdraget är slutfört
     }
 }

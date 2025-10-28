@@ -7,42 +7,42 @@ using Project_Quest_Tracker___Console_Adventure_Manager.Models;
 
 namespace Project_Quest_Tracker___Console_Adventure_Manager.Services
 {
-    public class QuestManager
+    public class QuestManager // Hanterar uppdrag
     {
-        private List<Quest> quests = new List<Quest>();
+        private List<Quest> quests = new List<Quest>(); // Lista över uppdrag
 
-        public void AddQuest(Quest quest)
+        public void AddQuest(Quest quest) // Lägg till nytt uppdrag
         {
-            quests.Add(quest);
+            quests.Add(quest); // Lägg till uppdrag i listan
         }
 
-        public List<Quest> GetAllQuests()
+        public List<Quest> GetAllQuests() // Hämta alla uppdrag
         {
-            return quests;
+            return quests; // Returnera listan med uppdrag
         }
 
-        public bool CompleteQuest(string title)
+        public bool CompleteQuest(string title) // Markera uppdrag som slutfört
         {
-            var quest = quests.FirstOrDefault(q => q.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
-            if (quest != null && !quest.IsCompleted)
+            var quest = quests.FirstOrDefault(q => q.Title.Equals(title, StringComparison.OrdinalIgnoreCase)); // Hitta uppdrag efter titel
+            if (quest != null && !quest.IsCompleted) // Om uppdraget finns och ej är slutfört
             {
-                quest.IsCompleted = true;
-                return true;
+                quest.IsCompleted = true; // Markera som slutfört
+                return true; // Returnera true för framgång
             }
-            return false;
+            return false; // Returnera false om uppdraget inte hittades eller redan var slutfört
         }
 
-        public bool UpdateQuest(string title, string newDesc, DateTime newDueDate, Priority newPriority)
+        public bool UpdateQuest(string title, string newDesc, DateTime newDueDate, Priority newPriority) // Uppdatera uppdragsdetaljer
         {
-            var quest = quests.FirstOrDefault(q => q.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
-            if (quest != null)
+            var quest = quests.FirstOrDefault(q => q.Title.Equals(title, StringComparison.OrdinalIgnoreCase)); // Hitta uppdrag efter titel
+            if (quest != null) // Om uppdraget finns
             {
                 quest.Description = newDesc;
                 quest.DueDate = newDueDate;
                 quest.Priority = newPriority;
-                return true;
+                return true; // Returnera true för framgång
             }
-            return false;
+            return false; // Returnera false om uppdraget inte hittades
         }
     }
 }
